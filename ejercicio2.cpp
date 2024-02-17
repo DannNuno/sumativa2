@@ -25,12 +25,38 @@ class Persona{
 
 int main(){
 
+Persona p1;
+p1.nombre = "nombre1";
+p1.telefono = "1234567892";
+p1.setEdad(19);
+p1.setEstatura(1.6);
+p1.setPeso(62.5);
+
+Persona p2(32,1.78, 70.4, "nombre2", "3312345678");
+
+vector<Persona> personas = {p1,p2};
+
+for(int i=0; i<personas.size(); i++){
+    personas[i].presentarse();
+    personas[i].cumplirAnios();
+}
+
+for(int i=0; i<personas.size(); i++){
+    personas[i].presentarse();
+}
+
 }
 
 Persona::Persona(){
 };
 
 Persona::Persona(int ed, float est, float pes, string nom, string tel){
+
+edad = ed;
+estatura = est;
+peso = pes;
+nombre = nom;
+telefono = tel;
 
 };
 
@@ -69,4 +95,8 @@ void Persona::cumplirAnios(){
     }
 };
 
-void Persona::presentarse(){};
+void Persona::presentarse(){
+    cout << "nombre: " << nombre << ", edad: " << edad;
+    cout << ", estatura: " << estatura << ", peso: " << peso;
+    cout << ", telefono: " << telefono << endl;
+};
